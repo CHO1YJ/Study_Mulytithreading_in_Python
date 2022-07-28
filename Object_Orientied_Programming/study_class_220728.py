@@ -1,4 +1,4 @@
-# 원을 클래스로 표시해보자.
+# 원을 클래스로 정의해 보자.
 # 원에는 반지름(radius)이라는 필드가 있다.
 # 원의 넓이와 둘레를 계산하는 메서드를 정의한다.
 # 생성자는 매개변수가 존재하는 생성자를 정의한다.
@@ -45,6 +45,17 @@ class Circle:
         print("원의 반지름 :", self.getRadius())
         print("원의 넓이 :", np.round(self.getSpace(), 2))
         print("원의 둘레 :", np.round(self.getPerimeter(), 2))
+        
+    # # 다음과 같이도 코드 구성이 가능
+    # # 이 경우에는 필드에 "self.__radius = radius"만 있어도 무방
+    # # 원의 넓이를 계산하는 메서드
+    # def calArea(self):
+    #     area = np.pi * np.power(self.__radius, 2)
+    #     return area
+    # # 원의 둘레를 계산하는 메서드
+    # def calcCircum(self):
+    #     value = 2 * np.pi * self.__radius
+    #     return value # 지역변수를 생성하여 계산해 내도 무방했던 문제
 
 # 메인함수 정의
 def main():
@@ -54,6 +65,14 @@ def main():
     print("반지름 변경")
     Circle1.setCircle(1)
     Circle1.__str__()
+    
+    # # 다음과 같이도 코드 구성이 가능
+    # print("--------------------------------")
+    # print("다음과 같이도 구성이 가능")
+    # circle = Circle(10)
+    # print("원의 반지름 :", circle.getRadius())
+    # print("원의 넓이 :", round(circle.calArea(), 2))
+    # print("원의 둘레 :", round(circle.calcCircum(), 2))
 
 # 파일의 시점 정의
 if __name__ == "__main__":
