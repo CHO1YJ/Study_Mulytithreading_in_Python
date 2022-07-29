@@ -14,14 +14,36 @@ class Account:
     __balance = 0
     
     def __init__(self):
-        self.balance = 0
+        self.__balance = 0
     
     # 입출금 메서드 정의 필요
+    def deposit(self, money):
+        self.__balance = self.__balance + money
+        print("통장에 " + format(money, ',') + "원이 입금됨")
+    def withdraw(self, money):
+        if self.__balance - money > 0:
+            print("통장에 " + format(money, ',') + "원이 출금됨")
+            self.__balance = self.__balance - money
+        else:
+            print("계좌에 잔액이 없습니다.")
+            
+    def getBalance(self):
+        return self.__balance
+    
+    def __str__(self):
+        print("현재 잔액 :", format(self.getBalance(), ',') + "원")
     
 def main():
     account1 = Account()
+    account1.deposit(1000000)
+    account1.__str__()
+    account1.withdraw(200000)
+    account1.__str__()
     
-    # 은행 업무 코드 필요
+    account1.withdraw(900000)
+    account1.__str__()
+    account1.deposit(400000)
+    account1.__str__()
 
 if __name__ == "__main__":
     main()
